@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "beacon-exfil", "beacon-exfil\beacon-exfil.csproj", "{E393D0E2-BA32-4C0C-BCBF-D22893113CAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E393D0E2-BA32-4C0C-BCBF-D22893113CAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E393D0E2-BA32-4C0C-BCBF-D22893113CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E393D0E2-BA32-4C0C-BCBF-D22893113CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E393D0E2-BA32-4C0C-BCBF-D22893113CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD46BB5C-08AD-4989-9B8A-6F5D952D8AF4}
+	EndGlobalSection
+EndGlobal

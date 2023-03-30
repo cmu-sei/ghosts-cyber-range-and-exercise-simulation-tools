@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="beacon_exfil.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HeaderUserAgent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) </Value>
+    </Setting>
+    <Setting Name="HeaderFileNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TTXAUTH8</Value>
+    </Setting>
+    <Setting Name="HeaderDataChunk" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VAXAUTH5</Value>
+    </Setting>
+    <Setting Name="HeaderByteData" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BUFAUTH1</Value>
+    </Setting>
+    <Setting Name="DriveMap" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\nec-file\reports</Value>
+    </Setting>
+    <Setting Name="Url" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://itsalongwaytothetop.com</Value>
+    </Setting>
+    <Setting Name="SendDelay" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="DelayVariance" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="DataSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2048</Value>
+    </Setting>
+    <Setting Name="HeaderFileNumberEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="HeaderDataChunkEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AltSendDelay" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="AltDelayEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UseRandomBytes" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
