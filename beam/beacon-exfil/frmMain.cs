@@ -91,8 +91,8 @@ namespace beacon_exfil
                 currentFileByteStart = 0;
                 currentChunkNum = 0;
 
-                this.panelParams.Enabled = false;
-                this.panelAddress.Enabled = false;
+                //this.panelParams.Enabled = false;
+                //this.panelAddress.Enabled = false;
                 //this.panelHeader.Enabled = false;
                 this.txtUserAgent.Enabled = false;
 
@@ -108,8 +108,9 @@ namespace beacon_exfil
             {
                 SetNextBeacon();
                 this.timerMain.Enabled = false;
-                this.panelParams.Enabled = true;
-                this.panelAddress.Enabled = true;
+                
+                //this.panelParams.Enabled = true;
+                //this.panelAddress.Enabled = true;
                 //this.panelHeader.Enabled = true;
                 this.txtUserAgent.Enabled = true;
 
@@ -154,6 +155,11 @@ namespace beacon_exfil
             nextBeaconTime = DateTime.Now.AddMilliseconds(currentDelay);
         }
 
+
+        private void setControlsEnabled(bool enabled)
+        {
+
+        }
 
         /// <summary>
         /// The main timer event that handles updating the UI and handles the delay between sending beacons
