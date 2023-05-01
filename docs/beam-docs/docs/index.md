@@ -1,15 +1,22 @@
-# Welcome to MkDocs
+# BEAM - Beacon Execution and Managment
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+BEAM is a tool to generate realistic network beacon traffic for use in cyber ranges. Software that exhibits beaconing activity on a network can indicate the presence of an adversary on a network. BEAM generates traffic on a specific timeline—every n minutes—that exercising teams can use to train against detecting and identifying beaconing activity over different timespans. [View on Github](https://github.com/cmu-sei/ghosts-cyber-range-and-exercise-simulation-tools)
 
-## Commands
+![Screenshot](img/beam1.PNG)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Installation
 
-## Project layout
+### Windows
+
+### Linux
+
+## File Desciption
+
+    Beam.exe    # The compiled executable
+    Beam.exe.config # The configuration file.
+
+
+## User Guide
 
     mkdocs.yml    # The configuration file.
     docs/

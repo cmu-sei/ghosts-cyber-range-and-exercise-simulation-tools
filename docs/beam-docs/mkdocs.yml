@@ -1,1 +1,6 @@
-site_name: BEAM - Beacon Execution And Management
+site_name: Beacon Execution And Management
+theme:
+  name: readthedocs
+  highlightjs: true
+  palette:
+    scheme: slate
