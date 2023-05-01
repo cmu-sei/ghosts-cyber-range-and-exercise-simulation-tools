@@ -30,10 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panelParams = new System.Windows.Forms.Panel();
+            this.ckbSecondDelay = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.nudSecondDelayMins = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.nudVariance = new System.Windows.Forms.NumericUpDown();
@@ -45,11 +48,15 @@
             this.nudDelayMins = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.panelAddress = new System.Windows.Forms.Panel();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.ckbRandomBytes = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDriveMap = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.ckbChunkNumber = new System.Windows.Forms.CheckBox();
+            this.ckbFileNumber = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtUserAgent = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,40 +74,21 @@
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.lblFileCount = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
-            this.ckbFileNumber = new System.Windows.Forms.CheckBox();
-            this.ckbChunkNumber = new System.Windows.Forms.CheckBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.nudSecondDelayMins = new System.Windows.Forms.NumericUpDown();
-            this.ckbSecondDelay = new System.Windows.Forms.CheckBox();
-            this.ckbRandomBytes = new System.Windows.Forms.CheckBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panelParams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMins)).BeginInit();
             this.panelAddress.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(2, 610);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(53, 52);
-            this.panel1.TabIndex = 0;
             // 
             // panelMain
             // 
             this.panelMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMain.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMain.BackColor = System.Drawing.Color.Black;
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMain.Controls.Add(this.label15);
             this.panelMain.Controls.Add(this.panelParams);
@@ -118,6 +106,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(3, 144);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 13);
@@ -126,7 +115,7 @@
             // 
             // panelParams
             // 
-            this.panelParams.BackColor = System.Drawing.SystemColors.Control;
+            this.panelParams.BackColor = System.Drawing.Color.Black;
             this.panelParams.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelParams.Controls.Add(this.ckbSecondDelay);
             this.panelParams.Controls.Add(this.label16);
@@ -146,9 +135,73 @@
             this.panelParams.Size = new System.Drawing.Size(902, 44);
             this.panelParams.TabIndex = 16;
             // 
+            // ckbSecondDelay
+            // 
+            this.ckbSecondDelay.AutoSize = true;
+            this.ckbSecondDelay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbSecondDelay.ForeColor = System.Drawing.Color.White;
+            this.ckbSecondDelay.Location = new System.Drawing.Point(324, 21);
+            this.ckbSecondDelay.Name = "ckbSecondDelay";
+            this.ckbSecondDelay.Size = new System.Drawing.Size(65, 17);
+            this.ckbSecondDelay.TabIndex = 24;
+            this.ckbSecondDelay.Text = "Enabled ";
+            this.ckbSecondDelay.UseVisualStyleBackColor = true;
+            this.ckbSecondDelay.CheckedChanged += new System.EventHandler(this.ckbSecondDelay_CheckedChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(269, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 13);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "minutes";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(190, 3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(167, 13);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Alternating Delay (Optional):";
+            // 
+            // nudSecondDelayMins
+            // 
+            this.nudSecondDelayMins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudSecondDelayMins.DecimalPlaces = 2;
+            this.nudSecondDelayMins.Enabled = false;
+            this.nudSecondDelayMins.Location = new System.Drawing.Point(193, 19);
+            this.nudSecondDelayMins.Maximum = new decimal(new int[] {
+            10080,
+            0,
+            0,
+            0});
+            this.nudSecondDelayMins.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.nudSecondDelayMins.Name = "nudSecondDelayMins";
+            this.nudSecondDelayMins.Size = new System.Drawing.Size(70, 20);
+            this.nudSecondDelayMins.TabIndex = 13;
+            this.nudSecondDelayMins.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.nudSecondDelayMins.ValueChanged += new System.EventHandler(this.nudSecondDelayMins_ValueChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(97, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
@@ -158,7 +211,9 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(447, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 13);
@@ -167,6 +222,7 @@
             // 
             // nudVariance
             // 
+            this.nudVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudVariance.Location = new System.Drawing.Point(450, 18);
             this.nudVariance.Maximum = new decimal(new int[] {
             75,
@@ -186,6 +242,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(501, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 13);
@@ -194,6 +252,7 @@
             // 
             // nudDataSize
             // 
+            this.nudDataSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudDataSize.Location = new System.Drawing.Point(663, 18);
             this.nudDataSize.Maximum = new decimal(new int[] {
             2048,
@@ -218,7 +277,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(18, 2);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
@@ -228,6 +289,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(723, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
@@ -237,7 +300,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(660, 2);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(241, 13);
@@ -246,6 +311,7 @@
             // 
             // nudDelayMins
             // 
+            this.nudDelayMins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudDelayMins.DecimalPlaces = 2;
             this.nudDelayMins.Location = new System.Drawing.Point(21, 18);
             this.nudDelayMins.Maximum = new decimal(new int[] {
@@ -271,7 +337,9 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(433, 3);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(217, 13);
@@ -292,10 +360,35 @@
             this.panelAddress.Size = new System.Drawing.Size(469, 123);
             this.panelAddress.TabIndex = 16;
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(389, 33);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 20);
+            this.btnBrowse.TabIndex = 25;
+            this.btnBrowse.Text = "Choose";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // ckbRandomBytes
+            // 
+            this.ckbRandomBytes.AutoSize = true;
+            this.ckbRandomBytes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbRandomBytes.ForeColor = System.Drawing.Color.White;
+            this.ckbRandomBytes.Location = new System.Drawing.Point(244, 10);
+            this.ckbRandomBytes.Name = "ckbRandomBytes";
+            this.ckbRandomBytes.Size = new System.Drawing.Size(136, 17);
+            this.ckbRandomBytes.TabIndex = 24;
+            this.ckbRandomBytes.Text = "Generate Random Data";
+            this.ckbRandomBytes.UseVisualStyleBackColor = true;
+            this.ckbRandomBytes.CheckedChanged += new System.EventHandler(this.ckbRandomBytes_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(20, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
@@ -304,6 +397,7 @@
             // 
             // txtDriveMap
             // 
+            this.txtDriveMap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDriveMap.Location = new System.Drawing.Point(23, 33);
             this.txtDriveMap.Name = "txtDriveMap";
             this.txtDriveMap.Size = new System.Drawing.Size(360, 20);
@@ -314,7 +408,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(20, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(207, 13);
@@ -323,6 +419,7 @@
             // 
             // txtUrl
             // 
+            this.txtUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUrl.Location = new System.Drawing.Point(23, 79);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(414, 20);
@@ -348,10 +445,42 @@
             this.panelHeader.Size = new System.Drawing.Size(418, 123);
             this.panelHeader.TabIndex = 15;
             // 
+            // ckbChunkNumber
+            // 
+            this.ckbChunkNumber.AutoSize = true;
+            this.ckbChunkNumber.Checked = true;
+            this.ckbChunkNumber.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbChunkNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbChunkNumber.ForeColor = System.Drawing.Color.White;
+            this.ckbChunkNumber.Location = new System.Drawing.Point(293, 74);
+            this.ckbChunkNumber.Name = "ckbChunkNumber";
+            this.ckbChunkNumber.Size = new System.Drawing.Size(65, 17);
+            this.ckbChunkNumber.TabIndex = 23;
+            this.ckbChunkNumber.Text = "Enabled ";
+            this.ckbChunkNumber.UseVisualStyleBackColor = true;
+            this.ckbChunkNumber.CheckedChanged += new System.EventHandler(this.ckbChunkNumber_CheckedChanged);
+            // 
+            // ckbFileNumber
+            // 
+            this.ckbFileNumber.AutoSize = true;
+            this.ckbFileNumber.Checked = true;
+            this.ckbFileNumber.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbFileNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbFileNumber.ForeColor = System.Drawing.Color.White;
+            this.ckbFileNumber.Location = new System.Drawing.Point(293, 48);
+            this.ckbFileNumber.Name = "ckbFileNumber";
+            this.ckbFileNumber.Size = new System.Drawing.Size(65, 17);
+            this.ckbFileNumber.TabIndex = 22;
+            this.ckbFileNumber.Text = "Enabled ";
+            this.ckbFileNumber.UseVisualStyleBackColor = true;
+            this.ckbFileNumber.CheckedChanged += new System.EventHandler(this.ckbFileNumber_CheckedChanged);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(3, 3);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(105, 13);
@@ -360,6 +489,7 @@
             // 
             // txtUserAgent
             // 
+            this.txtUserAgent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserAgent.Location = new System.Drawing.Point(3, 18);
             this.txtUserAgent.Name = "txtUserAgent";
             this.txtUserAgent.Size = new System.Drawing.Size(392, 20);
@@ -370,7 +500,9 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(120, 100);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 13);
@@ -379,6 +511,7 @@
             // 
             // txtByteData
             // 
+            this.txtByteData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtByteData.Location = new System.Drawing.Point(187, 96);
             this.txtByteData.Name = "txtByteData";
             this.txtByteData.Size = new System.Drawing.Size(100, 20);
@@ -389,7 +522,9 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(52, 74);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(132, 13);
@@ -398,6 +533,7 @@
             // 
             // txtChunkNumber
             // 
+            this.txtChunkNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtChunkNumber.Location = new System.Drawing.Point(187, 70);
             this.txtChunkNumber.Name = "txtChunkNumber";
             this.txtChunkNumber.Size = new System.Drawing.Size(100, 20);
@@ -408,7 +544,9 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(110, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(73, 13);
@@ -417,6 +555,7 @@
             // 
             // txtFileNumber
             // 
+            this.txtFileNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFileNumber.Location = new System.Drawing.Point(187, 44);
             this.txtFileNumber.Name = "txtFileNumber";
             this.txtFileNumber.Size = new System.Drawing.Size(100, 20);
@@ -427,7 +566,9 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(3, 2);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(286, 13);
@@ -439,6 +580,8 @@
             this.lstMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstMain.BackColor = System.Drawing.Color.Black;
+            this.lstMain.ForeColor = System.Drawing.Color.White;
             this.lstMain.HideSelection = false;
             this.lstMain.Location = new System.Drawing.Point(12, 225);
             this.lstMain.Name = "lstMain";
@@ -464,9 +607,10 @@
             this.lblCurrentDelay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurrentDelay.AutoSize = true;
             this.lblCurrentDelay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentDelay.ForeColor = System.Drawing.Color.White;
             this.lblCurrentDelay.Location = new System.Drawing.Point(332, 610);
             this.lblCurrentDelay.Name = "lblCurrentDelay";
-            this.lblCurrentDelay.Size = new System.Drawing.Size(102, 16);
+            this.lblCurrentDelay.Size = new System.Drawing.Size(101, 16);
             this.lblCurrentDelay.TabIndex = 15;
             this.lblCurrentDelay.Text = "Current Delay";
             // 
@@ -475,9 +619,10 @@
             this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
             this.lblStatus.Location = new System.Drawing.Point(332, 636);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(102, 16);
+            this.lblStatus.Size = new System.Drawing.Size(101, 16);
             this.lblStatus.TabIndex = 16;
             this.lblStatus.Text = "Current Delay";
             // 
@@ -486,9 +631,10 @@
             this.lblCurrentState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurrentState.AutoSize = true;
             this.lblCurrentState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentState.ForeColor = System.Drawing.Color.White;
             this.lblCurrentState.Location = new System.Drawing.Point(127, 636);
             this.lblCurrentState.Name = "lblCurrentState";
-            this.lblCurrentState.Size = new System.Drawing.Size(102, 16);
+            this.lblCurrentState.Size = new System.Drawing.Size(101, 16);
             this.lblCurrentState.TabIndex = 17;
             this.lblCurrentState.Text = "Current Delay";
             // 
@@ -502,9 +648,10 @@
             this.lblFileCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFileCount.AutoSize = true;
             this.lblFileCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileCount.ForeColor = System.Drawing.Color.White;
             this.lblFileCount.Location = new System.Drawing.Point(127, 610);
             this.lblFileCount.Name = "lblFileCount";
-            this.lblFileCount.Size = new System.Drawing.Size(102, 16);
+            this.lblFileCount.Size = new System.Drawing.Size(101, 16);
             this.lblFileCount.TabIndex = 18;
             this.lblFileCount.Text = "Current Delay";
             // 
@@ -521,113 +668,11 @@
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // ckbFileNumber
-            // 
-            this.ckbFileNumber.AutoSize = true;
-            this.ckbFileNumber.Checked = true;
-            this.ckbFileNumber.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbFileNumber.Location = new System.Drawing.Point(293, 48);
-            this.ckbFileNumber.Name = "ckbFileNumber";
-            this.ckbFileNumber.Size = new System.Drawing.Size(68, 17);
-            this.ckbFileNumber.TabIndex = 22;
-            this.ckbFileNumber.Text = "Enabled ";
-            this.ckbFileNumber.UseVisualStyleBackColor = true;
-            this.ckbFileNumber.CheckedChanged += new System.EventHandler(this.ckbFileNumber_CheckedChanged);
-            // 
-            // ckbChunkNumber
-            // 
-            this.ckbChunkNumber.AutoSize = true;
-            this.ckbChunkNumber.Checked = true;
-            this.ckbChunkNumber.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbChunkNumber.Location = new System.Drawing.Point(293, 74);
-            this.ckbChunkNumber.Name = "ckbChunkNumber";
-            this.ckbChunkNumber.Size = new System.Drawing.Size(68, 17);
-            this.ckbChunkNumber.TabIndex = 23;
-            this.ckbChunkNumber.Text = "Enabled ";
-            this.ckbChunkNumber.UseVisualStyleBackColor = true;
-            this.ckbChunkNumber.CheckedChanged += new System.EventHandler(this.ckbChunkNumber_CheckedChanged);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(269, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 13);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "minutes";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(190, 3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(167, 13);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "Alternating Delay (Optional):";
-            // 
-            // nudSecondDelayMins
-            // 
-            this.nudSecondDelayMins.DecimalPlaces = 2;
-            this.nudSecondDelayMins.Enabled = false;
-            this.nudSecondDelayMins.Location = new System.Drawing.Point(193, 19);
-            this.nudSecondDelayMins.Maximum = new decimal(new int[] {
-            10080,
-            0,
-            0,
-            0});
-            this.nudSecondDelayMins.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.nudSecondDelayMins.Name = "nudSecondDelayMins";
-            this.nudSecondDelayMins.Size = new System.Drawing.Size(70, 20);
-            this.nudSecondDelayMins.TabIndex = 13;
-            this.nudSecondDelayMins.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.nudSecondDelayMins.ValueChanged += new System.EventHandler(this.nudSecondDelayMins_ValueChanged);
-            // 
-            // ckbSecondDelay
-            // 
-            this.ckbSecondDelay.AutoSize = true;
-            this.ckbSecondDelay.Location = new System.Drawing.Point(324, 21);
-            this.ckbSecondDelay.Name = "ckbSecondDelay";
-            this.ckbSecondDelay.Size = new System.Drawing.Size(68, 17);
-            this.ckbSecondDelay.TabIndex = 24;
-            this.ckbSecondDelay.Text = "Enabled ";
-            this.ckbSecondDelay.UseVisualStyleBackColor = true;
-            this.ckbSecondDelay.CheckedChanged += new System.EventHandler(this.ckbSecondDelay_CheckedChanged);
-            // 
-            // ckbRandomBytes
-            // 
-            this.ckbRandomBytes.AutoSize = true;
-            this.ckbRandomBytes.Location = new System.Drawing.Point(244, 10);
-            this.ckbRandomBytes.Name = "ckbRandomBytes";
-            this.ckbRandomBytes.Size = new System.Drawing.Size(139, 17);
-            this.ckbRandomBytes.TabIndex = 24;
-            this.ckbRandomBytes.Text = "Generate Random Data";
-            this.ckbRandomBytes.UseVisualStyleBackColor = true;
-            this.ckbRandomBytes.CheckedChanged += new System.EventHandler(this.ckbRandomBytes_CheckedChanged);
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(389, 33);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 20);
-            this.btnBrowse.TabIndex = 25;
-            this.btnBrowse.Text = "Choose";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(934, 661);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblFileCount);
@@ -637,17 +682,17 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lstMain);
             this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(950, 700);
             this.Name = "frmMain";
-            this.Text = "BEAM - Beacon Exfil Generator for AI and ML 1.0";
+            this.Text = "BEAM - Beacon Execution And Management";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.panelParams.ResumeLayout(false);
             this.panelParams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMins)).EndInit();
@@ -655,15 +700,12 @@
             this.panelAddress.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

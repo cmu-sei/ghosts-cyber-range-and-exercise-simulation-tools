@@ -93,7 +93,10 @@ namespace beacon_exfil
 
                 this.panelParams.Enabled = false;
                 this.panelAddress.Enabled = false;
-                this.panelHeader.Enabled = false;
+                //this.panelHeader.Enabled = false;
+                this.txtUserAgent.Enabled = false;
+
+
                 ShowOutput("Starting Beacon Process");
                 directories.Enqueue(this.txtDriveMap.Text);
                 this.timerMain.Enabled = true;
@@ -107,7 +110,9 @@ namespace beacon_exfil
                 this.timerMain.Enabled = false;
                 this.panelParams.Enabled = true;
                 this.panelAddress.Enabled = true;
-                this.panelHeader.Enabled = true;
+                //this.panelHeader.Enabled = true;
+                this.txtUserAgent.Enabled = true;
+
                 ShowOutput("Beacon Stopped Manually");
                 this.btnStart.Text = "Start";
                 this.btnPause.Enabled = false;
@@ -596,4 +601,6 @@ namespace beacon_exfil
             txtDriveMap.Enabled = !ckbRandomBytes.Checked;
         }
     }
+
+
 }
