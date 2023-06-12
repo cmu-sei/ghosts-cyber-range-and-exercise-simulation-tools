@@ -33,6 +33,10 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panelParams = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.nudDataSizeVariance = new System.Windows.Forms.NumericUpDown();
+            this.label19 = new System.Windows.Forms.Label();
             this.ckbSecondDelay = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -74,19 +78,17 @@
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.lblFileCount = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.nudDataSizeVariance = new System.Windows.Forms.NumericUpDown();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMain.SuspendLayout();
             this.panelParams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMins)).BeginInit();
             this.panelAddress.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -143,6 +145,59 @@
             this.panelParams.Name = "panelParams";
             this.panelParams.Size = new System.Drawing.Size(902, 44);
             this.panelParams.TabIndex = 16;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(788, 21);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(65, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Enabled ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(713, 3);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(179, 13);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "Data Size Variance (0% - 50%)";
+            // 
+            // nudDataSizeVariance
+            // 
+            this.nudDataSizeVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudDataSizeVariance.Location = new System.Drawing.Point(716, 19);
+            this.nudDataSizeVariance.Maximum = new decimal(new int[] {
+            75,
+            0,
+            0,
+            0});
+            this.nudDataSizeVariance.Name = "nudDataSizeVariance";
+            this.nudDataSizeVariance.Size = new System.Drawing.Size(45, 20);
+            this.nudDataSizeVariance.TabIndex = 25;
+            this.nudDataSizeVariance.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(767, 23);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(15, 13);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "%";
             // 
             // ckbSecondDelay
             // 
@@ -678,58 +733,16 @@
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // label18
+            // pictureBox1
             // 
-            this.label18.AutoSize = true;
-            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(713, 3);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(179, 13);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Data Size Variance (0% - 50%)";
-            // 
-            // nudDataSizeVariance
-            // 
-            this.nudDataSizeVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudDataSizeVariance.Location = new System.Drawing.Point(716, 19);
-            this.nudDataSizeVariance.Maximum = new decimal(new int[] {
-            75,
-            0,
-            0,
-            0});
-            this.nudDataSizeVariance.Name = "nudDataSizeVariance";
-            this.nudDataSizeVariance.Size = new System.Drawing.Size(45, 20);
-            this.nudDataSizeVariance.TabIndex = 25;
-            this.nudDataSizeVariance.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(767, 23);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(15, 13);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "%";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(788, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(65, 17);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.Text = "Enabled ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 602);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMain
             // 
@@ -737,13 +750,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(934, 661);
+            this.Controls.Add(this.lstMain);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblFileCount);
             this.Controls.Add(this.lblCurrentState);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblCurrentDelay);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.lstMain);
             this.Controls.Add(this.panelMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -755,6 +769,7 @@
             this.panelMain.PerformLayout();
             this.panelParams.ResumeLayout(false);
             this.panelParams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).EndInit();
@@ -763,7 +778,7 @@
             this.panelAddress.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -818,6 +833,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nudDataSizeVariance;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
