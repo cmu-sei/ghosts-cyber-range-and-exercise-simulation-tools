@@ -4,10 +4,9 @@ using System.Net;
 using System.Windows.Forms;
 using System.IO;
 using System.IO.Compression;
-using System.Text;
+using beamApp.Properties;
 
-
-namespace beacon_exfil
+namespace beamApp
 {
     public partial class frmMain : Form
     {
@@ -40,32 +39,55 @@ namespace beacon_exfil
         /// <param name="e">Event parameters</param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            this.lblCurrentState.Text = "";
-            this.lblCurrentDelay.Text = "";
-            this.lblStatus.Text = "";
-            this.lblCurrentState.Text = "";
-            this.lblFileCount.Text = "";
-            this.totalFiles = 0;
-            this.totalBeacons = 0;
+            lblCurrentState.Text = "";
+            lblCurrentState.ForeColor = System.Drawing.Color.White;
+            lblCurrentDelay.Text = "";
+            lblStatus.Text = "";
+            lblFileCount.Text = "";
+            totalFiles = 0;
+            totalBeacons = 0;
 
-            this.lstMain.Columns.Add("Details", 625);
-            this.lstMain.Columns.Add("Timestamp", 125);
-            this.lstMain.View = View.Details;
+            lstMain.Columns.Add("Details", 625);
+            lstMain.Columns.Add("Timestamp", 250);
+            lstMain.View = View.Details;
 
-            this.txtDriveMap.Text = Properties.Settings.Default.DriveMap;
-            this.txtFileNumber.Text = Properties.Settings.Default.HeaderFileNumber;
-            this.txtUserAgent.Text = Properties.Settings.Default.HeaderUserAgent;
-            this.txtByteData.Text = Properties.Settings.Default.HeaderByteData;
-            this.txtChunkNumber.Text = Properties.Settings.Default.HeaderDataChunk;
-            this.txtUrl.Text = Properties.Settings.Default.Url;
-            this.nudDataSize.Value = Properties.Settings.Default.DataSize;
-            this.nudDelayMins.Value = Properties.Settings.Default.SendDelay;
-            this.nudVariance.Value = Properties.Settings.Default.DelayVariance;
-            this.nudSecondDelayMins.Value = Properties.Settings.Default.AltSendDelay;
-            this.ckbRandomBytes.Checked = Properties.Settings.Default.UseRandomBytes;
-            this.ckbFileNumber.Checked = Properties.Settings.Default.HeaderFileNumberEnabled;
-            this.ckbChunkNumber.Checked = Properties.Settings.Default.HeaderDataChunkEnabled;
-            this.ckbSecondDelay.Checked = Properties.Settings.Default.AltDelayEnabled;
+            txtDriveMap.Text = Properties.Settings.Default.DriveMap;
+            txtFileNumber.Text = Properties.Settings.Default.HeaderFileNumber;
+            txtUserAgent.Text = Properties.Settings.Default.HeaderUserAgent;
+            txtByteData.Text = Properties.Settings.Default.HeaderByteData;
+            txtChunkNumber.Text = Properties.Settings.Default.HeaderDataChunk;
+            txtUrl.Text = Properties.Settings.Default.Url;
+            nudDataSize.Value = Properties.Settings.Default.DataSize;
+            nudDelayMins.Value = Properties.Settings.Default.SendDelay;
+            nudDelayVariance.Value = Properties.Settings.Default.DelayVariance;
+            nudDataSizeVariance.Value = Properties.Settings.Default.DataSizeVariance;
+            nudSecondDelayMins.Value = Properties.Settings.Default.AltSendDelay;
+            ckbRandomBytes.Checked = Properties.Settings.Default.UseRandomBytes;
+            ckbFileNumber.Checked = Properties.Settings.Default.HeaderFileNumberEnabled;
+            ckbChunkNumber.Checked = Properties.Settings.Default.HeaderDataChunkEnabled;
+            ckbSecondDelay.Checked = Properties.Settings.Default.AltDelayEnabled;
+            ckbEnableDataVariance.Checked = Properties.Settings.Default.DataVarianceEnabled;
+
+
+            toolTipMain.SetToolTip(ckbEnableDataVariance, "Note:  When enabled, data size can exceed 2048 bytes");
+            toolTipMain.SetToolTip(nudDataSizeVariance, "Note:  When enabled, data size can exceed 2048 bytes");
+            toolTipMain.SetToolTip(nudDataSize, "Max size 2048 bytes");
+
+            toolTipMain.SetToolTip(nudDelayVariance, "% of the delay that adds a variance to the time that data is sent");
+
+            toolTipMain.SetToolTip(nudSecondDelayMins, "When enabled, the delay alternates between the Send Delay and this value");
+            toolTipMain.SetToolTip(ckbSecondDelay, "When enabled, the delay alternates between the Send Delay and this value");
+
+            toolTipMain.SetToolTip(nudDelayMins, "Time in minutes to wait between when data is sent");
+
+            toolTipMain.SetToolTip(txtUserAgent, "AGENT key text that is added to GET header");
+            toolTipMain.SetToolTip(txtFileNumber, "Key name added to header representing the file number");
+            toolTipMain.SetToolTip(txtChunkNumber, "Key name added to header representing the chunk number of a file when a file must be divided up");
+            toolTipMain.SetToolTip(txtByteData, "Key name added to header representing the encoded/compressed byte data of a chunk of a file");
+
+            toolTipMain.SetToolTip(txtDriveMap, "Path for files to be sent");
+            toolTipMain.SetToolTip(txtUrl, "URL to sent GET to  -  Must have http or https in the address or error will occur");
+
         }
 
 
@@ -80,7 +102,7 @@ namespace beacon_exfil
 
             if (isRunning)
             {
-                this.lstMain.Items.Clear();
+                lstMain.Items.Clear();
 
                 currentFile = "";
                 currentDirectory = "";
@@ -91,35 +113,66 @@ namespace beacon_exfil
                 currentFileByteStart = 0;
                 currentChunkNum = 0;
 
-                //this.panelParams.Enabled = false;
-                //this.panelAddress.Enabled = false;
-                //this.panelHeader.Enabled = false;
-                this.txtUserAgent.Enabled = false;
-
+                setControlsEnabled(false);
 
                 ShowOutput("Starting Beacon Process");
-                directories.Enqueue(this.txtDriveMap.Text);
-                this.timerMain.Enabled = true;
-                this.btnStart.Text = "Stop";
-                this.btnPause.Enabled = true;
-                this.btnPause.Text = "Pause";
+                directories.Enqueue(txtDriveMap.Text);
+                timerMain.Enabled = true;
+                btnStart.Text = "Stop";
+                btnPause.Enabled = true;
+                btnPause.Text = "Pause";
+                btnSendNow.Visible = true;
             }
             else
             {
                 SetNextBeacon();
-                this.timerMain.Enabled = false;
-                
-                //this.panelParams.Enabled = true;
-                //this.panelAddress.Enabled = true;
-                //this.panelHeader.Enabled = true;
-                this.txtUserAgent.Enabled = true;
+                timerMain.Enabled = false;
+
+                setControlsEnabled(true);
 
                 ShowOutput("Beacon Stopped Manually");
-                this.btnStart.Text = "Start";
-                this.btnPause.Enabled = false;
-                this.btnPause.Text = "Pause";
-                this.lblCurrentState.Text = "Stopped";
+                btnStart.Text = "Start";
+                btnPause.Enabled = false;
+                btnPause.Text = "Pause";
+                lblCurrentState.Text = "Stopped";
+                lblCurrentState.ForeColor = System.Drawing.Color.Red;
+                lblCurrentDelay.Text = "";
+                lblStatus.Text = "";
+                btnSendNow.Visible = false;
             }
+
+        }
+
+        /// <summary>
+        /// Disables or enables controls that should not be changed when the app is running
+        /// </summary>
+        /// <param name="enabled"></param>
+        private void setControlsEnabled(bool enabled)
+        {
+            txtUrl.Enabled = enabled;
+            if (ckbFileNumber.Checked)
+                txtFileNumber.Enabled = enabled;
+            txtUserAgent.Enabled = enabled;
+            txtByteData.Enabled = enabled;
+            if (ckbChunkNumber.Checked)
+                txtChunkNumber.Enabled = enabled;
+            if (!ckbRandomBytes.Checked)
+                txtDriveMap.Enabled = enabled;
+            btnBrowse.Enabled = enabled;
+            ckbRandomBytes.Enabled = enabled;
+            ckbFileNumber.Enabled = enabled;
+            ckbChunkNumber.Enabled = enabled;
+
+            if (enabled)
+            {
+                pbLighthouse.Image = Resources.lighthouse_large;
+            }
+            else
+            {
+                pbLighthouse.Image = Resources.lighthouse;
+            }
+            pbLighthouse.Refresh();
+            pbLighthouse.Visible = true;
 
         }
 
@@ -136,18 +189,18 @@ namespace beacon_exfil
             {
                 // Even uses first delay and odd used second delay
                 if (totalBeacons % 2 == 0)
-                    delayMs = (int)Math.Round(this.nudDelayMins.Value * MILLISECONDS_PER_MIN, 0);
+                    delayMs = (int)Math.Round(nudDelayMins.Value * MILLISECONDS_PER_MIN, 0);
                 else
-                    delayMs = (int)Math.Round(this.nudSecondDelayMins.Value * MILLISECONDS_PER_MIN, 0);
+                    delayMs = (int)Math.Round(nudSecondDelayMins.Value * MILLISECONDS_PER_MIN, 0);
 
             }
             else
             {
-                delayMs = (int)Math.Round(this.nudDelayMins.Value * MILLISECONDS_PER_MIN, 0);
+                delayMs = (int)Math.Round(nudDelayMins.Value * MILLISECONDS_PER_MIN, 0);
             }
 
             Random random = new Random();
-            int varianceMax = (int)((this.nudVariance.Value / 100) * delayMs);
+            int varianceMax = (int)((nudDelayVariance.Value / 100) * delayMs);
             int randVariance = random.Next(-1 * varianceMax, varianceMax);
 
             currentDelay = delayMs + randVariance;
@@ -156,11 +209,6 @@ namespace beacon_exfil
         }
 
 
-        private void setControlsEnabled(bool enabled)
-        {
-
-        }
-
         /// <summary>
         /// The main timer event that handles updating the UI and handles the delay between sending beacons
         /// </summary>
@@ -168,13 +216,12 @@ namespace beacon_exfil
         /// <param name="e">Event parameters</param>
         private void timerMain_Tick(object sender, EventArgs e)
         {
-
             TimeSpan nextBeacon = new TimeSpan(nextBeaconTime.Ticks - DateTime.Now.Ticks);
-            this.lblCurrentDelay.Text = "Current Delay:  " + (currentDelay / 1000).ToString() + " sec";
+            lblCurrentDelay.Text = "Current Delay:  " + (currentDelay / 1000).ToString() + " sec";
             var nextBeaconSeconds = Math.Round(nextBeacon.TotalSeconds, 0);
             if (nextBeaconSeconds < 0)
                 nextBeaconSeconds = 0;
-            this.lblStatus.Text = "Next Beacon:   " + Math.Round(nextBeaconSeconds, 0).ToString() + " sec";
+            lblStatus.Text = "Next Beacon:   " + Math.Round(nextBeaconSeconds, 0).ToString() + " sec";
 
             if (nextBeacon.TotalSeconds <= 0)
             {
@@ -183,22 +230,22 @@ namespace beacon_exfil
                 if (directories.Count == 0 && currentDirectoryFiles.Count == 0 && currentFile == "")
                 {
                     SetNextBeacon();
-                    this.timerMain.Enabled = false;
-                    this.panelParams.Enabled = true;
-                    this.panelAddress.Enabled = true;
-                    this.panelHeader.Enabled = true;
+                    timerMain.Enabled = false;
                     ShowOutput("DONE!");
-                    this.btnStart.Text = "Start";
+                    btnStart.Text = "Start";
                     isRunning = false;
-                    this.btnPause.Enabled = false;
-                    this.btnPause.Text = "Pause";
-                    this.lblCurrentState.Text = "Stopped";
+                    btnPause.Enabled = false;
+                    btnPause.Text = "Pause";
+                    lblCurrentState.Text = "Stopped";
+                    lblCurrentState.ForeColor = System.Drawing.Color.Red;
+                    setControlsEnabled(true);
                     return;
                 }
 
                 if (!ckbRandomBytes.Checked && currentFile == "")
                 {
-                    this.lblCurrentState.Text = "Searching for files";
+                    lblCurrentState.Text = "Searching for files";
+                    lblCurrentState.ForeColor = System.Drawing.Color.White;
                     Application.DoEvents();
                     // Find more directories when queue is empty
                     if (currentDirectoryFiles.Count == 0)
@@ -232,15 +279,27 @@ namespace beacon_exfil
                     bool isFileReadComplete = false;
                     try
                     {
-                        this.lblCurrentState.Text = "Sending Data";
+                        lblCurrentState.Text = "Sending Data";
+                        lblCurrentState.ForeColor = System.Drawing.Color.Yellow;
                         Application.DoEvents();
                         byte[] bytes;
                         int bytesToRead;
                         long bytesRemaining;
+
+                        var byteCount = Convert.ToInt32(nudDataSize.Value);
+                        if (ckbEnableDataVariance.Checked)
+                        {
+                            var dataVariance = Convert.ToInt32(nudDataSizeVariance.Value);
+                            Random random = new Random();
+                            int varianceMax = Convert.ToInt32((nudDataSizeVariance.Value / 100) * nudDataSize.Value);
+                            int randVariance = random.Next(-1 * varianceMax, varianceMax);
+                            byteCount += randVariance;
+                        }
+
                         if (ckbRandomBytes.Checked)
                         {
                             Random random = new Random();
-                            bytesToRead = Convert.ToInt32(nudDataSize.Value);
+                            bytesToRead = byteCount;
                             bytesRemaining = bytesToRead;
                             bytes = new byte[bytesToRead];
                             random.NextBytes(bytes);
@@ -249,7 +308,6 @@ namespace beacon_exfil
                         else
                         {
                             FileInfo fi = new FileInfo(currentFile);
-                            var byteCount = Convert.ToInt32(this.nudDataSize.Value);
                             bytesRemaining = fi.Length - currentFileByteStart;
                             bytesToRead = (bytesRemaining - byteCount) > 0 ? byteCount : (int)bytesRemaining;
                             bytes = new byte[bytesToRead];
@@ -271,7 +329,8 @@ namespace beacon_exfil
                             totalBeacons++;
                         }
                         isFileReadComplete = ((bytesRemaining - bytesToRead) == 0);
-                        this.lblCurrentState.Text = "Delaying";
+                        lblCurrentState.Text = "Running!!!";
+                        lblCurrentState.ForeColor = System.Drawing.Color.Green;
 
                     }
                     catch (Exception ex)
@@ -290,15 +349,12 @@ namespace beacon_exfil
                         currentChunkNum = 0;
                     }
 
-                    this.lblFileCount.Text = "Beacons Sent:  " + totalBeacons.ToString();
+                    lblFileCount.Text = "Beacons Sent:  " + totalBeacons.ToString();
                     SetNextBeacon();
                 }
 
             }
-            else
-            {
-                this.lblCurrentState.Text = "Delaying";
-            }
+
         }
 
 
@@ -427,27 +483,33 @@ namespace beacon_exfil
         /// <param name="e">Event parameters</param>
         private void btnPause_Click(object sender, EventArgs e)
         {
-            if (!this.timerMain.Enabled)
+            if (!timerMain.Enabled)
             {
                 ShowOutput("Restarted");
-                this.btnPause.Text = "Pause";
-                this.panelParams.Enabled = false;
-                this.panelHeader.Enabled = false;
+                btnPause.Text = "Pause";
                 nextBeaconTime = DateTime.Now;
             }
             else
             {
                 ShowOutput("Paused");
-                this.btnPause.Text = "Resume";
-                this.panelParams.Enabled = true;
-                this.panelHeader.Enabled = true;
-
+                btnPause.Text = "Resume";
+                this.lblCurrentState.Text = "Paused";
+                this.lblCurrentState.ForeColor = System.Drawing.Color.Yellow;
             }
 
-            this.timerMain.Enabled = !this.timerMain.Enabled;
+            timerMain.Enabled = !timerMain.Enabled;
 
         }
 
+        /// <summary>
+        /// Skips the delay and sends the next beacon now
+        /// </summary>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
+        private void btnSendNow_Click(object sender, EventArgs e)
+        {
+            nextBeaconTime = DateTime.Now;
+        }
 
         /// <summary>
         /// Event for handling the update and local config file storage of the drive map
@@ -540,7 +602,7 @@ namespace beacon_exfil
         /// <param name="e">Event parameters</param>
         private void nudVariance_ValueChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.DelayVariance = Convert.ToInt32(nudVariance.Value);
+            Properties.Settings.Default.DelayVariance = Convert.ToInt32(nudDelayVariance.Value);
             Properties.Settings.Default.Save();
         }
 
@@ -575,8 +637,8 @@ namespace beacon_exfil
         /// <summary>
         /// Enable the naming of the FileNumber in the HTML header using the text given by the user
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
         private void ckbFileNumber_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.HeaderFileNumberEnabled = ckbFileNumber.Checked;
@@ -587,8 +649,8 @@ namespace beacon_exfil
         /// <summary>
         /// Enable the naming of the Chunk Number in the HTML header using the text given by the user
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
         private void ckbChunkNumber_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.HeaderDataChunkEnabled = ckbFileNumber.Checked;
@@ -599,14 +661,19 @@ namespace beacon_exfil
         /// <summary>
         /// The send delay in minutes
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
         private void nudSecondDelayMins_ValueChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.AltSendDelay = nudSecondDelayMins.Value;
             Properties.Settings.Default.Save();
         }
 
+        /// <summary>
+        /// Change in the delay saved to config file for alternate delay
+        /// </summary>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
         private void ckbSecondDelay_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.AltDelayEnabled = ckbSecondDelay.Checked;
@@ -614,6 +681,11 @@ namespace beacon_exfil
             nudSecondDelayMins.Enabled = ckbSecondDelay.Checked;
         }
 
+        /// <summary>
+        /// Change in the value for the sending of random data check box
+        /// </summary>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
         private void ckbRandomBytes_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.UseRandomBytes = ckbRandomBytes.Checked;
@@ -622,34 +694,35 @@ namespace beacon_exfil
             txtDriveMap.Enabled = !ckbRandomBytes.Checked;
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        /// <summary>
+        ///  Change in the value for adding data size variance
+        /// </summary>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
+        private void ckbEnableDataVariance_CheckedChanged(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.DataVarianceEnabled = ckbEnableDataVariance.Checked;
+            Properties.Settings.Default.Save();
+            nudDataSizeVariance.Enabled = ckbEnableDataVariance.Checked;
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Called when the form is closed
+        /// </summary>
+        /// <param name="sender">Object triggering event</param>
+        /// <param name="e">Event parameters</param>
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            if (isRunning)
+            {
+                // Display a MsgBox asking the user if they really want to close the application.
+                if (MessageBox.Show("Do you want to close this application?", "BEAM",
+                    MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    // Cancel the Closing event from closing the form.
+                    e.Cancel = true;
+                }
+            }
         }
     }
 

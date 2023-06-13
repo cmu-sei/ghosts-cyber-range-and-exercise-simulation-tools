@@ -1,4 +1,4 @@
-﻿namespace beacon_exfil
+﻿namespace beamApp
 {
     partial class frmMain
     {
@@ -43,7 +43,7 @@
             this.nudSecondDelayMins = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.nudVariance = new System.Windows.Forms.NumericUpDown();
+            this.nudDelayVariance = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.nudDataSize = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,17 +78,19 @@
             this.timerMain = new System.Windows.Forms.Timer(this.components);
             this.lblFileCount = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbLighthouse = new System.Windows.Forms.PictureBox();
+            this.toolTipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSendNow = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panelParams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayVariance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMins)).BeginInit();
             this.panelAddress.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLighthouse)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMain
@@ -134,7 +136,7 @@
             this.panelParams.Controls.Add(this.nudSecondDelayMins);
             this.panelParams.Controls.Add(this.label4);
             this.panelParams.Controls.Add(this.label5);
-            this.panelParams.Controls.Add(this.nudVariance);
+            this.panelParams.Controls.Add(this.nudDelayVariance);
             this.panelParams.Controls.Add(this.label6);
             this.panelParams.Controls.Add(this.nudDataSize);
             this.panelParams.Controls.Add(this.label3);
@@ -158,6 +160,7 @@
             this.ckbEnableDataVariance.TabIndex = 28;
             this.ckbEnableDataVariance.Text = "Enabled ";
             this.ckbEnableDataVariance.UseVisualStyleBackColor = true;
+            this.ckbEnableDataVariance.CheckedChanged += new System.EventHandler(this.ckbEnableDataVariance_CheckedChanged);
             // 
             // label18
             // 
@@ -174,6 +177,7 @@
             // nudDataSizeVariance
             // 
             this.nudDataSizeVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudDataSizeVariance.Enabled = false;
             this.nudDataSizeVariance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudDataSizeVariance.Location = new System.Drawing.Point(705, 19);
             this.nudDataSizeVariance.Maximum = new decimal(new int[] {
@@ -246,6 +250,11 @@
             this.nudSecondDelayMins.DecimalPlaces = 2;
             this.nudSecondDelayMins.Enabled = false;
             this.nudSecondDelayMins.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSecondDelayMins.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.nudSecondDelayMins.Location = new System.Drawing.Point(160, 19);
             this.nudSecondDelayMins.Maximum = new decimal(new int[] {
             10080,
@@ -285,31 +294,31 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(349, 2);
+            this.label5.Location = new System.Drawing.Point(369, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(163, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Delay Variance (0% - 75%)";
             // 
-            // nudVariance
+            // nudDelayVariance
             // 
-            this.nudVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudVariance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudVariance.Location = new System.Drawing.Point(352, 18);
-            this.nudVariance.Maximum = new decimal(new int[] {
+            this.nudDelayVariance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nudDelayVariance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDelayVariance.Location = new System.Drawing.Point(372, 19);
+            this.nudDelayVariance.Maximum = new decimal(new int[] {
             75,
             0,
             0,
             0});
-            this.nudVariance.Name = "nudVariance";
-            this.nudVariance.Size = new System.Drawing.Size(45, 22);
-            this.nudVariance.TabIndex = 7;
-            this.nudVariance.Value = new decimal(new int[] {
+            this.nudDelayVariance.Name = "nudDelayVariance";
+            this.nudDelayVariance.Size = new System.Drawing.Size(45, 22);
+            this.nudDelayVariance.TabIndex = 7;
+            this.nudDelayVariance.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.nudVariance.ValueChanged += new System.EventHandler(this.nudVariance_ValueChanged);
+            this.nudDelayVariance.ValueChanged += new System.EventHandler(this.nudVariance_ValueChanged);
             // 
             // label6
             // 
@@ -317,7 +326,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(398, 22);
+            this.label6.Location = new System.Drawing.Point(418, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(19, 16);
             this.label6.TabIndex = 9;
@@ -389,6 +398,11 @@
             this.nudDelayMins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nudDelayMins.DecimalPlaces = 2;
             this.nudDelayMins.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDelayMins.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.nudDelayMins.Location = new System.Drawing.Point(13, 18);
             this.nudDelayMins.Maximum = new decimal(new int[] {
             10080,
@@ -472,7 +486,6 @@
             this.label1.Size = new System.Drawing.Size(88, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Files Location";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDriveMap
             // 
@@ -493,10 +506,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(20, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 16);
+            this.label2.Size = new System.Drawing.Size(311, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Valid Web Address to Exfil Data to:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "Valid Web Address to Exfil Data to including http(s)//";
             // 
             // txtUrl
             // 
@@ -506,7 +518,7 @@
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(414, 22);
             this.txtUrl.TabIndex = 1;
-            this.txtUrl.Text = "http://itsalongwaytothetop.com";
+            this.txtUrl.Text = "http://www.google.com";
             this.txtUrl.TextChanged += new System.EventHandler(this.txtUrl_TextChanged);
             // 
             // panelHeader
@@ -571,7 +583,6 @@
             this.label13.Size = new System.Drawing.Size(107, 16);
             this.label13.TabIndex = 21;
             this.label13.Text = "User Agent Value";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // txtUserAgent
             // 
@@ -595,7 +606,6 @@
             this.label12.Size = new System.Drawing.Size(65, 16);
             this.label12.TabIndex = 19;
             this.label12.Text = "Byte Data";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // txtByteData
             // 
@@ -619,7 +629,6 @@
             this.label11.Size = new System.Drawing.Size(138, 16);
             this.label11.TabIndex = 17;
             this.label11.Text = "Data Package Number";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtChunkNumber
             // 
@@ -643,7 +652,6 @@
             this.label10.Size = new System.Drawing.Size(77, 16);
             this.label10.TabIndex = 15;
             this.label10.Text = "File Number";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtFileNumber
             // 
@@ -702,7 +710,7 @@
             this.lblCurrentDelay.AutoSize = true;
             this.lblCurrentDelay.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentDelay.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentDelay.Location = new System.Drawing.Point(332, 610);
+            this.lblCurrentDelay.Location = new System.Drawing.Point(435, 610);
             this.lblCurrentDelay.Name = "lblCurrentDelay";
             this.lblCurrentDelay.Size = new System.Drawing.Size(40, 16);
             this.lblCurrentDelay.TabIndex = 15;
@@ -714,7 +722,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(332, 636);
+            this.lblStatus.Location = new System.Drawing.Point(435, 636);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(45, 16);
             this.lblStatus.TabIndex = 16;
@@ -724,11 +732,11 @@
             // 
             this.lblCurrentState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCurrentState.AutoSize = true;
-            this.lblCurrentState.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentState.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentState.ForeColor = System.Drawing.Color.White;
             this.lblCurrentState.Location = new System.Drawing.Point(127, 636);
             this.lblCurrentState.Name = "lblCurrentState";
-            this.lblCurrentState.Size = new System.Drawing.Size(38, 16);
+            this.lblCurrentState.Size = new System.Drawing.Size(48, 19);
             this.lblCurrentState.TabIndex = 17;
             this.lblCurrentState.Text = "State";
             // 
@@ -762,16 +770,29 @@
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // pictureBox1
+            // pbLighthouse
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 602);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.pbLighthouse.Image = global::beamApp.Properties.Resources.lighthouse;
+            this.pbLighthouse.InitialImage = null;
+            this.pbLighthouse.Location = new System.Drawing.Point(12, 602);
+            this.pbLighthouse.Name = "pbLighthouse";
+            this.pbLighthouse.Size = new System.Drawing.Size(62, 60);
+            this.pbLighthouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLighthouse.TabIndex = 20;
+            this.pbLighthouse.TabStop = false;
+            // 
+            // btnSendNow
+            // 
+            this.btnSendNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendNow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendNow.Location = new System.Drawing.Point(376, 610);
+            this.btnSendNow.Name = "btnSendNow";
+            this.btnSendNow.Size = new System.Drawing.Size(53, 42);
+            this.btnSendNow.TabIndex = 21;
+            this.btnSendNow.Text = "Send Now";
+            this.btnSendNow.UseVisualStyleBackColor = true;
+            this.btnSendNow.Visible = false;
+            this.btnSendNow.Click += new System.EventHandler(this.btnSendNow_Click);
             // 
             // frmMain
             // 
@@ -779,8 +800,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(934, 661);
+            this.Controls.Add(this.btnSendNow);
             this.Controls.Add(this.lstMain);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbLighthouse);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblFileCount);
             this.Controls.Add(this.lblCurrentState);
@@ -793,6 +815,7 @@
             this.MinimumSize = new System.Drawing.Size(950, 700);
             this.Name = "frmMain";
             this.Text = "BEAM - Beacon Execution And Management";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
@@ -800,14 +823,14 @@
             this.panelParams.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSizeVariance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSecondDelayMins)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVariance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelayVariance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDataSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelayMins)).EndInit();
             this.panelAddress.ResumeLayout(false);
             this.panelAddress.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLighthouse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -824,7 +847,7 @@
         private System.Windows.Forms.NumericUpDown nudDataSize;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown nudVariance;
+        private System.Windows.Forms.NumericUpDown nudDelayVariance;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
@@ -862,7 +885,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown nudDataSizeVariance;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbLighthouse;
+        private System.Windows.Forms.ToolTip toolTipMain;
+        private System.Windows.Forms.Button btnSendNow;
     }
 }
 

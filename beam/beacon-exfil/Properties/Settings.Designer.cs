@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace beacon_exfil.Properties {
+namespace beamApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -73,7 +73,7 @@ namespace beacon_exfil.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\nec-file\\reports")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\")]
         public string DriveMap {
             get {
                 return ((string)(this["DriveMap"]));
@@ -85,7 +85,7 @@ namespace beacon_exfil.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://itsalongwaytothetop.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.google.com")]
         public string Url {
             get {
                 return ((string)(this["Url"]));
@@ -188,6 +188,30 @@ namespace beacon_exfil.Properties {
             }
             set {
                 this["UseRandomBytes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public decimal DataSizeVariance {
+            get {
+                return ((decimal)(this["DataSizeVariance"]));
+            }
+            set {
+                this["DataSizeVariance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DataVarianceEnabled {
+            get {
+                return ((bool)(this["DataVarianceEnabled"]));
+            }
+            set {
+                this["DataVarianceEnabled"] = value;
             }
         }
     }

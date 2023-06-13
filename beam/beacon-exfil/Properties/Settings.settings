@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="beacon_exfil.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="beamApp.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="HeaderUserAgent" Type="System.String" Scope="User">
@@ -15,10 +15,10 @@
       <Value Profile="(Default)">BUFAUTH1</Value>
     </Setting>
     <Setting Name="DriveMap" Type="System.String" Scope="User">
-      <Value Profile="(Default)">\\nec-file\reports</Value>
+      <Value Profile="(Default)">C:\</Value>
     </Setting>
     <Setting Name="Url" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://itsalongwaytothetop.com</Value>
+      <Value Profile="(Default)">https://www.google.com</Value>
     </Setting>
     <Setting Name="SendDelay" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0.1</Value>
@@ -42,6 +42,12 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UseRandomBytes" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DataSizeVariance" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="DataVarianceEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
