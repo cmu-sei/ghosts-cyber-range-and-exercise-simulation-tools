@@ -572,6 +572,11 @@ namespace beacon_exfil
             }
         }
 
+        /// <summary>
+        /// Enable the naming of the FileNumber in the HTML header using the text given by the user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ckbFileNumber_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.HeaderFileNumberEnabled = ckbFileNumber.Checked;
@@ -579,6 +584,11 @@ namespace beacon_exfil
             txtFileNumber.Enabled = ckbFileNumber.Checked;
         }
 
+        /// <summary>
+        /// Enable the naming of the Chunk Number in the HTML header using the text given by the user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ckbChunkNumber_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.HeaderDataChunkEnabled = ckbFileNumber.Checked;
@@ -586,6 +596,11 @@ namespace beacon_exfil
             txtChunkNumber.Enabled = ckbFileNumber.Checked;
         }
 
+        /// <summary>
+        /// The send delay in minutes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nudSecondDelayMins_ValueChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.AltSendDelay = nudSecondDelayMins.Value;
@@ -605,6 +620,36 @@ namespace beacon_exfil
             Properties.Settings.Default.Save();
             btnBrowse.Enabled = !ckbRandomBytes.Checked;
             txtDriveMap.Enabled = !ckbRandomBytes.Checked;
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
