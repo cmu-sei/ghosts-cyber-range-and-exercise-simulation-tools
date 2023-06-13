@@ -452,13 +452,15 @@
             // 
             // btnBrowse
             // 
+            this.btnBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBrowse.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.ForeColor = System.Drawing.Color.Black;
             this.btnBrowse.Location = new System.Drawing.Point(389, 33);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 31);
             this.btnBrowse.TabIndex = 25;
             this.btnBrowse.Text = "Choose";
-            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // ckbRandomBytes
@@ -695,13 +697,15 @@
             // btnStart
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnStart.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.Black;
             this.btnStart.Location = new System.Drawing.Point(815, 610);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(107, 42);
             this.btnStart.TabIndex = 14;
             this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblCurrentDelay
@@ -760,19 +764,21 @@
             // btnPause
             // 
             this.btnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnPause.Enabled = false;
             this.btnPause.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.ForeColor = System.Drawing.Color.Black;
             this.btnPause.Location = new System.Drawing.Point(715, 622);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(94, 30);
             this.btnPause.TabIndex = 19;
             this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // pbLighthouse
             // 
-            this.pbLighthouse.Image = global::beamApp.Properties.Resources.lighthouse;
+            this.pbLighthouse.Image = global::beamApp.Properties.Resources.lighthouse_large;
             this.pbLighthouse.InitialImage = null;
             this.pbLighthouse.Location = new System.Drawing.Point(12, 602);
             this.pbLighthouse.Name = "pbLighthouse";
@@ -784,13 +790,15 @@
             // btnSendNow
             // 
             this.btnSendNow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSendNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnSendNow.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendNow.ForeColor = System.Drawing.Color.Black;
             this.btnSendNow.Location = new System.Drawing.Point(376, 610);
             this.btnSendNow.Name = "btnSendNow";
             this.btnSendNow.Size = new System.Drawing.Size(53, 42);
             this.btnSendNow.TabIndex = 21;
             this.btnSendNow.Text = "Send Now";
-            this.btnSendNow.UseVisualStyleBackColor = true;
+            this.btnSendNow.UseVisualStyleBackColor = false;
             this.btnSendNow.Visible = false;
             this.btnSendNow.Click += new System.EventHandler(this.btnSendNow_Click);
             // 

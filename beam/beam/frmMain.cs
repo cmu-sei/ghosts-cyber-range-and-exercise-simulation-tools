@@ -122,6 +122,7 @@ namespace beamApp
                 btnPause.Enabled = true;
                 btnPause.Text = "Pause";
                 btnSendNow.Visible = true;
+                pbLighthouse.Image = Resources.lighthouse;
             }
             else
             {
@@ -139,7 +140,10 @@ namespace beamApp
                 lblCurrentDelay.Text = "";
                 lblStatus.Text = "";
                 btnSendNow.Visible = false;
+                pbLighthouse.Image = Resources.lighthouse_large;
             }
+            pbLighthouse.Refresh();
+            pbLighthouse.Visible = true;
 
         }
 
@@ -162,17 +166,6 @@ namespace beamApp
             ckbRandomBytes.Enabled = enabled;
             ckbFileNumber.Enabled = enabled;
             ckbChunkNumber.Enabled = enabled;
-
-            if (enabled)
-            {
-                pbLighthouse.Image = Resources.lighthouse_large;
-            }
-            else
-            {
-                pbLighthouse.Image = Resources.lighthouse;
-            }
-            pbLighthouse.Refresh();
-            pbLighthouse.Visible = true;
 
         }
 
